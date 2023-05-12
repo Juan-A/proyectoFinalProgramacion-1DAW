@@ -2,6 +2,8 @@ package partida;
 
 import jugadores.Jugador;
 
+import java.util.Random;
+
 public class Partida {
     protected Tablero tablero;
     private int punto;
@@ -53,13 +55,49 @@ public class Partida {
         System.out.println("El ganador es: " + ganador.toString());
 
     }
+    public void jugadas(){
+        boolean algunoPuedeMover = true, puedeMoverJugador1 = true, puedeMoverJugador2 = true;
+        Random generar = new Random();
+        byte primerJugador = (byte) generar.nextInt(2);
+        byte segundoJugador;
+        if (primerJugador == 0) {
+            segundoJugador = 1;
+        } else {
+            segundoJugador = 0;
+        }
+        while (tablero.hayPosicionesLibres() && algunoPuedeMover) {
+            System.out.println("--------------------");
+            mostrarRonda();
+            if (tablero.puedeMover(jugadores[primerJugador].getColor())) {
+                jugadores[primerJugador].ponerFicha(tablero);
+                puedeMoverJugador1=true;
+            }else{
+                System.out.println("El jugador "+jugadores[primerJugador].getColor()+" no puede mover.");
+                puedeMoverJugador1 = false;
+            }
+            if (tablero.puedeMover(jugadores[segundoJugador].getColor())) {
+                jugadores[segundoJugador].ponerFicha(tablero);
+                puedeMoverJugador2=true;
+            }else{
+                System.out.println("El jugador "+jugadores[segundoJugador].getColor()+" no puede mover.");
+                puedeMoverJugador2 = false;
+            }
+            if (tablero.puedeMover(jugadores[primerJugador].getColor()) || tablero.puedeMover(jugadores[segundoJugador].getColor())) {
+                algunoPuedeMover = true;
+            } else {
+                algunoPuedeMover = false;
+            }
+            ronda++;
+
+        }
+
+    }
 
 
     //finalizarPartida
     public void finalizarPartida() {
 
     }
-    //contarPuntos
 
     protected int getRonda() {
         return ronda;

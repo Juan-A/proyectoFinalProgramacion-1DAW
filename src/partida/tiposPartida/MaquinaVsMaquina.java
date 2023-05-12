@@ -26,26 +26,6 @@ public class MaquinaVsMaquina extends Partida {
         jugadores[1].setColor(jugadores[0].colorContrarioAdversario());
 
 
-        while (tablero.hayPosicionesLibres() && algunoPuedeMover) {
-            if (tablero.puedeMover(jugadores[primerJugador].getColor())) {
-                jugadores[primerJugador].ponerFicha(tablero);
-                puedeMoverJugador1 = true;
-            } else {
-                puedeMoverJugador1 = false;
-            }
-            if (tablero.puedeMover(jugadores[segundoJugador].getColor())) {
-                jugadores[segundoJugador].ponerFicha(tablero);
-                puedeMoverJugador2 = true;
-            } else {
-                puedeMoverJugador2 = false;
-            }
-            if (tablero.puedeMover(jugadores[primerJugador].getColor()) || tablero.puedeMover(jugadores[segundoJugador].getColor())) {
-                algunoPuedeMover = true;
-            } else {
-                algunoPuedeMover = false;
-            }
-            ronda++;
-
-        }
+        jugadas();
     }
 }
