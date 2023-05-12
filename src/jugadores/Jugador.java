@@ -8,22 +8,16 @@ public abstract class Jugador {
     String nombre;
     char color;
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public char getColor() {
         return color;
-    }
+    } //Devuelve B o N
 
+    //Recibe B o N y lo asigna
     public void setColor(char color) {
         this.color = color;
     }
 
+    //Establece un color aleatorio.
     public void colorAleatorio() {
         Random generar = new Random();
         if (generar.nextInt(2) == 0) {
@@ -33,19 +27,23 @@ public abstract class Jugador {
         }
 
     }
-    public String colorToString(){
-        if (this.color=='N'){
+
+    //Devuelve el color B o N de forma más legible.
+    public String colorToString() {
+        if (this.color == 'N') {
             return "Negras";
-        }else{
+        } else {
             return "Blancas";
         }
     }
 
-    //public void moverFicha
+    //Método abstracto diferente para Maquina y Persona
     public abstract void ponerFicha(Tablero tablero);
 
+    //Método abstracto que inicia el jugador (Persona o Maquina)
     public abstract void iniciarPartida(boolean primerJugador);
 
+    //Devuelve el color contrario al del jugador.
     public char colorContrarioAdversario() {
         if (this.color == 'N') {
             return 'B';
@@ -56,6 +54,6 @@ public abstract class Jugador {
 
     @Override
     public String toString() {
-        return nombre+" con las fichas "+colorToString()+".";
+        return nombre + " con las fichas " + colorToString() + ".";
     }
 }
