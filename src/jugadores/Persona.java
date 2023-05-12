@@ -1,23 +1,21 @@
 package jugadores;
 
-import partida.Partida;
 import partida.Tablero;
 
 import java.util.InputMismatchException;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Persona extends Jugador {
+
+    //Método iniciarPartida que pide el nombre y el color al usuario.
     @Override
     public void iniciarPartida(boolean esPrimerJugador) {
-        Random generar = new Random();
-        int colorAleatorio;
         Scanner teclado = new Scanner(System.in);
         String nombre;
         System.out.print("Introduce tu nombre:");
         nombre = teclado.nextLine();
         this.nombre = nombre;
-        if(esPrimerJugador){
+        if (esPrimerJugador) { //Si es el primer jugador, se le pregunta si quiere elegir color.
             System.out.println("Bien, " + nombre + " quieres elegir color? (S/N):");
             String respuesta = teclado.nextLine();
             if (respuesta.equalsIgnoreCase("S")) {
@@ -28,11 +26,11 @@ public class Persona extends Jugador {
                 } else {
                     this.color = 'N';
                 }
-            } else {
+            } else { //Si no quiere elegir color, se le asigna aleatoriamente.
                 System.out.println("Color asignado aleatoriamente.");
                 this.colorAleatorio();
             }
-        }else{
+        } else { //Si es el segundo jugador, se le asigna el color contrario al del primer jugador.
             System.out.println("Color asignado aleatoriamente."); //Se asigna en el constructor de la partida.
         }
 
@@ -42,6 +40,7 @@ public class Persona extends Jugador {
 
     }
 
+    //Recibe un tablero y pide al usuario una posición hasta que sea válida.
     @Override
     public void ponerFicha(Tablero tablero) {
         Scanner teclado = new Scanner(System.in);
@@ -54,8 +53,8 @@ public class Persona extends Jugador {
         } else {
             oponente = 'B';
         }
-//mostrar tablero:
-        tablero.imprimirMovimientosValidos(color,true);
+        //mostrar tablero:
+        tablero.imprimirMovimientosValidos(color, true);
         //pedir posicion
         System.out.println("---" + nombre + "---");
         while (!valido) {
@@ -67,22 +66,15 @@ public class Persona extends Jugador {
                 columna = Character.toUpperCase(entrada.charAt(1));
                 ncolumna = (byte) (columna - 'A');
                 valido = tablero.esMovimientoValido(fila, ncolumna, color, oponente);
-            } catch (InputMismatchException e) {
+                //Controlo que la fila y columna estén dentro del tablero y  que el formato sea correcto.
+            } catch (InputMismatchException | NumberFormatException e) {
                 System.out.println("Error, formato incorrecto. Vuelve a intentarlo.");
-            } catch (NumberFormatException e) {
+            } catch (StringIndexOutOfBoundsException e) {
                 System.out.println("Error, formato incorrecto. Vuelve a intentarlo.");
             }
-
-            //comprobar posicion
-
-            //poner ficha
-            //comprobar si hay ganador (pos vacias)
-            //comprobar si hay empate (pos vacias)
-            //cambiar turno
         }
+        //Pongo la ficha en el tablero.
         tablero.ponerFicha(fila, ncolumna, color);
     }
-    public void crearJugador(){
 
-    }
 }
