@@ -26,17 +26,20 @@ public class JugadorVsJugador extends Partida {
         imprimirColoresJugadores();
 
         while (tablero.hayPosicionesLibres() && algunoPuedeMover) {
+            System.out.println("--------------------");
             super.mostrarRonda();
             if (tablero.puedeMover(jugadores[primerJugador].getColor())) {
                 jugadores[primerJugador].ponerFicha(tablero);
                 puedeMoverJugador1=true;
             }else{
+                System.out.println("El jugador "+jugadores[primerJugador].getColor()+" no puede mover.");
                 puedeMoverJugador1 = false;
             }
             if (tablero.puedeMover(jugadores[segundoJugador].getColor())) {
                 jugadores[segundoJugador].ponerFicha(tablero);
                 puedeMoverJugador2=true;
             }else{
+                System.out.println("El jugador "+jugadores[segundoJugador].getColor()+" no puede mover.");
                 puedeMoverJugador2 = false;
             }
             if (tablero.puedeMover(jugadores[primerJugador].getColor()) || tablero.puedeMover(jugadores[segundoJugador].getColor())) {
