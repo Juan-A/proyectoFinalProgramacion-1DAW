@@ -54,4 +54,8 @@ public abstract class Jugador {
         }
     }
 
+    @Override
+    public String toString() {
+        return nombre+" con las fichas "+colorToString()+".";
+    }
 }

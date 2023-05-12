@@ -71,17 +71,21 @@ public class Main {
                 case 1:
                     System.out.println("Jugador vs Jugador");
                     Partida partida1 = new JugadorVsJugador();
+                    partida1.mostrarGanador();
                     break;
                 case 2:
                     System.out.println("Jugador vs Ordenador");
                     Partida partida = new JugadorVsMaquina();
+                    partida.mostrarGanador();
                     break;
                 case 3:
                     System.out.println("Ordenador vs Ordenador");
                     Partida partida3 = new MaquinaVsMaquina();
+                    partida3.mostrarGanador();
                     break;
                 case 4:
                     System.out.println("Salir");
+                    salida = true;
                     break;
             }
         }
