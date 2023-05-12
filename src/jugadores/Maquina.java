@@ -7,16 +7,19 @@ import java.util.List;
 import java.util.Random;
 
 public class Maquina extends Jugador {
-
+//Almacena en una lista los pares de posiciones válidas para la máquina.
     List<int[][]> posicionesValidas = new ArrayList<>();
 
     public Maquina() {
     }
 
+    //Método que selecciona una posición aleatoria de la lista de posiciones válidas.
     public int seleccionarPosicionAleatoria(Tablero tablero) {
         char[][] tableroTemporal = tablero.imprimirMovimientosValidos(color, false);
+        //Recorro el tablero
         for (int i = 0; i < tableroTemporal.length; i++) {
             for (int j = 0; j < tableroTemporal[i].length; j++) {
+                //Si me encuentro con una posicion valida, la registro en la lista
                 if (tableroTemporal[i][j] == '*') {
                     int[][] posicion = new int[1][2];
                     posicion[0][0] = i;
@@ -26,19 +29,23 @@ public class Maquina extends Jugador {
             }
         }
         Random generar = new Random();
-        int posicionAleatoria = generar.nextInt(posicionesValidas.size());
-        return posicionAleatoria;
+        //Genero un número aleatorio entre 0 y el tamaño de la lista de posiciones válidas
+        //Devuelvo la posición aleatoria
+        return generar.nextInt(posicionesValidas.size());
     }
 
+    //Método que pone la ficha en el tablero.
     @Override
     public void ponerFicha(Tablero tablero) {
         System.out.println("---"+nombre+"---");
         tablero.imprimirMovimientosValidos(color,true);
-
+        //Selecciono posicion aleatoria
         int posicionAleatoria = seleccionarPosicionAleatoria(tablero);
+        //Con el numero aleatorio (posicion en la lista), obtengo la fila y columna de la posicion.
         byte fila = (byte) posicionesValidas.get(posicionAleatoria)[0][0];
         byte columna = (byte) posicionesValidas.get(posicionAleatoria)[0][1];
 
+        //Pongo la ficha en el tablero
         tablero.ponerFicha(fila, columna, color);
         System.out.println("Maquina pone ficha.");
 
