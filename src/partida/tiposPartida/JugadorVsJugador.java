@@ -26,6 +26,7 @@ public class JugadorVsJugador extends Partida {
         imprimirColoresJugadores();
 
         while (tablero.hayPosicionesLibres() && algunoPuedeMover) {
+            super.mostrarRonda();
             if (tablero.puedeMover(jugadores[primerJugador].getColor())) {
                 jugadores[primerJugador].ponerFicha(tablero);
                 puedeMoverJugador1=true;

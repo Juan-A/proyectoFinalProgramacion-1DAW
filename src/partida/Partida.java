@@ -8,6 +8,7 @@ public class Partida {
     protected int ronda;
     protected Jugador[] jugadores = new Jugador[2];
 
+    //Inicio los valores del tablero, los puntos y las rondas.
     public Partida() {
         this.tablero = new Tablero();
         this.punto = 0;
@@ -15,6 +16,7 @@ public class Partida {
 
     }
 
+    //Imprime los colores de los jugadores.
     public void imprimirColoresJugadores() {
         if (jugadores[0].getColor() == 'B') {
             System.out.println("El jugador 1: fichas blancas.");
@@ -26,7 +28,10 @@ public class Partida {
     }
 
     //Aquí iba la función "pasarRonda", que finalmente no se implementará porque se ejecuta directamente en la mod. de juego.
-    //mostrarRonda?
+    //mostrarRonda
+    public void mostrarRonda() {
+        System.out.println("Ronda: " + ronda);
+    }
     //mostrarGanador
     public void mostrarGanador() {
         StringBuilder ganador = new StringBuilder();
