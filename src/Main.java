@@ -60,7 +60,7 @@ public class Main {
         boolean salida = false;
         Scanner teclado = new Scanner(System.in);
         while (!salida) {
-            System.out.println("-----------------");
+            System.out.println("--------------------");
 
             System.out.println("Seleccione modalidad: ");
             System.out.println("1.Jugador vs Jugador");
@@ -88,6 +88,7 @@ public class Main {
                     salida = true;
                     break;
             }
+            System.out.println("---Partida terminada---");
         }
     }
 
