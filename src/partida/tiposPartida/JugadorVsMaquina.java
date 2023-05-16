@@ -9,7 +9,6 @@ import java.util.Random;
 public class JugadorVsMaquina extends Partida {
     public JugadorVsMaquina() {
         super();
-        boolean algunoPuedeMover = true, puedeMoverJugador1 = true, puedeMoverJugador2 = true;
         Random generar = new Random();
         byte primerJugador = (byte) generar.nextInt(2);
         byte segundoJugador;
@@ -19,10 +18,10 @@ public class JugadorVsMaquina extends Partida {
             segundoJugador = 0;
         }
 
-        jugadores[0] = new Persona();
-        jugadores[0].iniciarPartida(true);
-        jugadores[1] = new Maquina();
-        jugadores[1].setColor(jugadores[0].colorContrarioAdversario());
+        jugadores[primerJugador] = new Persona();
+        jugadores[primerJugador].iniciarPartida(true);
+        jugadores[segundoJugador] = new Maquina();
+        jugadores[segundoJugador].setColor(jugadores[0].colorContrarioAdversario());
         imprimirColoresJugadores();
 
         jugadas();
