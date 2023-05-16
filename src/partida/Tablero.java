@@ -1,14 +1,11 @@
 package partida;
 
-import jugadores.Jugador;
-
-import java.util.Arrays;
 import java.util.Random;
 
 public class Tablero {
-    private static final char FICHA_BLANCA = '\u25CB';
-    private static final char FICHA_NEGRA = '\u25CF';
-    private static final char FICHA_VACIA = '\u25A1';
+    private static final char FICHA_BLANCA = '○';
+    private static final char FICHA_NEGRA = '●';
+    private static final char FICHA_VACIA = '□';
     private static final String FORMATO_TABLERO = "\u001B[47m" + "\u001B[30m"; //Define fondo y fuente, respectivamente.
     private static final String FORMATO_RESTAURAR = "\u001B[0m"; //Resetea el formato.
 
@@ -79,6 +76,7 @@ public class Tablero {
                 // Verificar que haya al menos una ficha del jugador después de la ficha del adversario
                 if (x + distanciaFichaAdv * dx >= 0 && x + distanciaFichaAdv * dx < 8 && y + distanciaFichaAdv * dy >= 0 && y + distanciaFichaAdv * dy < 8 && tablero[x + distanciaFichaAdv * dx][y + distanciaFichaAdv * dy] == jugador && distanciaFichaAdv > 1) {
                     fichaAdversarioEncontrada = true;
+                    break; //sale del bucle for anidado.
                 }
             }
         }
@@ -142,32 +140,32 @@ public class Tablero {
 
     public char[][] imprimirMovimientosValidos(char color, boolean imprimir) { //Imprime y devuelve pos. validas.
 
-        String tableroString = "";
-        tableroString += FORMATO_TABLERO;
-        tableroString += "  A B C D E F G H\n"; //Agrega encabezado de columnas.
+        StringBuilder tableroString = new StringBuilder();
+        tableroString.append(FORMATO_TABLERO);
+        tableroString.append("  A B C D E F G H\n"); //Agrega encabezado de columnas.
 
         char oponente = (color == 'B') ? 'N' : 'B';
 
         char[][] tableroTemporal = new char[8][8];
 
         for (int i = 0; i < tablero.length; i++) {
-            tableroString += (i + 1) + " "; //Agrega número de fila.
+            tableroString.append((i + 1)).append(" "); //Agrega número de fila.
             for (int j = 0; j < tablero[i].length; j++) {
                 // tableroTemporal[i][j] = tablero[i][j];
                 if (tablero[i][j] == 'V' && esMovimientoValido(i, j, color, oponente)) {
                     tableroTemporal[i][j] = '*';
-                    tableroString += '*' + " ";
+                    tableroString.append('*' + " ");
                 } else if (tablero[i][j] == 'V') {
-                    tableroString += FICHA_VACIA + " ";
+                    tableroString.append(FICHA_VACIA + " ");
                 } else if (tablero[i][j] == 'B') {
-                    tableroString += FICHA_BLANCA + " ";
+                    tableroString.append(FICHA_BLANCA + " ");
                 } else if (tablero[i][j] == 'N') {
-                    tableroString += FICHA_NEGRA + " ";
+                    tableroString.append(FICHA_NEGRA + " ");
                 }
             }
-            tableroString += "\n";
+            tableroString.append("\n");
         }
-        tableroString += FORMATO_RESTAURAR;
+        tableroString.append(FORMATO_RESTAURAR);
         if (imprimir) {
             System.out.println(tableroString);
         }
@@ -180,28 +178,28 @@ public class Tablero {
     public String toString() {
         //imprime el tablero:
 
-        String tableroString = "";
-        tableroString += FORMATO_TABLERO;
-        tableroString += "  A B C D E F G H\n"; //Agrega encabezado de columnas.
+        StringBuilder tableroString = new StringBuilder();
+        tableroString.append(FORMATO_TABLERO);
+        tableroString.append("  A B C D E F G H\n"); //Agrega encabezado de columnas.
 
         for (int i = 0; i < tablero.length; i++) {
-            tableroString += (i + 1) + " "; //Agrega número de fila.
+            tableroString.append((i + 1)).append(" "); //Agrega número de fila.
 
             for (int j = 0; j < tablero[i].length; j++) {
                 if (tablero[i][j] == 'B') {
-                    tableroString += FICHA_BLANCA + " "; //Imprime ficha blanca.
+                    tableroString.append(FICHA_BLANCA + " "); //Imprime ficha blanca.
                 } else if (tablero[i][j] == 'N') {
-                    tableroString += FICHA_NEGRA + " "; //Imprime ficha negra.
+                    tableroString.append(FICHA_NEGRA + " "); //Imprime ficha negra.
                 } else if (tablero[i][j] == 'V') {
-                    tableroString += FICHA_VACIA + " ";
+                    tableroString.append(FICHA_VACIA + " ");
                 }
 
             }
-            tableroString += "\n";
+            tableroString.append("\n");
         }
-        tableroString += "  A B C D E F G H\n";
-        tableroString += FORMATO_RESTAURAR;
-        return tableroString;
+        tableroString.append("  A B C D E F G H\n");
+        tableroString.append(FORMATO_RESTAURAR);
+        return tableroString.toString();
 
     }
 }
