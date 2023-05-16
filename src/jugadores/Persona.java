@@ -67,6 +67,8 @@ public class Persona extends Jugador {
                 fila -= 1;
                 columna = Character.toUpperCase(entrada.charAt(1));
                 ncolumna = (byte) (columna - 'A');
+                //Si es valido salgo del bucle y pongo la ficha en el tablero.
+                //Será aquí donde controle errores de formato.
                 valido = tablero.esMovimientoValido(fila, ncolumna, color, oponente);
                 //Controlo que la fila y columna estén dentro del tablero y  que el formato sea correcto.
             } catch (InputMismatchException | NumberFormatException e) {
