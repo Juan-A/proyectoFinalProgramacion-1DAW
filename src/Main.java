@@ -52,12 +52,12 @@ public class Main {
         Scanner teclado = new Scanner(System.in);
         while (!salida) {
             System.out.println("--------------------");
-
             System.out.println("Seleccione modalidad: ");
             System.out.println("1.Jugador vs Jugador");
             System.out.println("2.Jugador vs Ordenador");
             System.out.println("3.Ordenador vs Ordenador");
             System.out.println("4.Salir");
+            System.out.println("--------------------");
             switch (teclado.nextInt()) {
                 case 1:
                     System.out.println("Jugador vs Jugador");
