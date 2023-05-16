@@ -11,15 +11,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // menuIncio();
-        /*Persona jugador1 = new Persona();
-        jugador1.setColor('N');
-        Tablero tablero = new Tablero();
-        jugador1.ponerFicha(tablero);
-        System.out.println(tablero.toString());
-        jugador1.ponerFicha(tablero);
-        System.out.println(tablero.toString());
-*/
         menuIncio();
     }
 
