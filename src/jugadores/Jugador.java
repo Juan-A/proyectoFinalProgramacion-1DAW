@@ -38,7 +38,7 @@ public abstract class Jugador {
     }
 
     //Método abstracto diferente para Maquina y Persona
-    public abstract void ponerFicha(Tablero tablero);
+    public abstract boolean ponerFicha(Tablero tablero);
 
     //Método abstracto que inicia el jugador (Persona o Maquina)
     public abstract void iniciarPartida(boolean primerJugador);

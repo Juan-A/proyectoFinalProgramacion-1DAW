@@ -41,8 +41,9 @@ public class Persona extends Jugador {
     }
 
     //Recibe un tablero y pide al usuario una posición hasta que sea válida.
+    //Devuelve boolean para controlar la salida de la partida.
     @Override
-    public void ponerFicha(Tablero tablero) {
+    public boolean ponerFicha(Tablero tablero) {
         Scanner teclado = new Scanner(System.in);
         byte fila = 0, ncolumna = 0;
         char columna, oponente;
@@ -58,9 +59,13 @@ public class Persona extends Jugador {
         //pedir posicion
         System.out.println("---" + nombre + "---");
         while (!valido) {
+            System.out.println("Si deseas salir, introduce 'S'.");
             System.out.print("Introduce una posición (3A p. ej.):");
             entrada = teclado.nextLine();
             try {
+                if (entrada.charAt(0) == 'S' || entrada.charAt(0) == 's') {
+                    return true;
+                }
                 fila = Byte.parseByte(String.valueOf(entrada.charAt(0)));
                 fila -= 1;
                 columna = Character.toUpperCase(entrada.charAt(1));
@@ -75,6 +80,7 @@ public class Persona extends Jugador {
         }
         //Pongo la ficha en el tablero.
         tablero.ponerFicha(fila, ncolumna, color);
+        return false;
     }
 
 }

@@ -42,7 +42,7 @@ public class Partida {
             for (int j = 0; j < tablero.getTablero()[i].length; j++) {
                 if (tablero.getTablero()[i][j] == 'B') {
                     fichasblancas++;
-                } else {
+                } else if (tablero.getTablero()[i][j] == 'N'){
                     fichasnegras++;
                 }
             }
@@ -51,12 +51,15 @@ public class Partida {
             ganador.append(jugadores[0].toString());
         } else if (fichasblancas < fichasnegras) {
             ganador.append(jugadores[1].toString());
+        } else if (fichasblancas == fichasnegras) {
+            ganador.append("Empate! No hay ganador.");
         }
+        ganador.append(" con "+fichasblancas+" fichas blancas y "+fichasnegras+" fichas negras.");
         System.out.println("El ganador es: " + ganador.toString());
 
     }
     public void jugadas(){
-        boolean algunoPuedeMover = true, puedeMoverJugador1 = true, puedeMoverJugador2 = true;
+        boolean algunoPuedeMover = true, puedeMoverJugador1 = true, puedeMoverJugador2 = true, terminar = false;
         Random generar = new Random();
         byte primerJugador = (byte) generar.nextInt(2);
         byte segundoJugador;
@@ -65,18 +68,18 @@ public class Partida {
         } else {
             segundoJugador = 0;
         }
-        while (tablero.hayPosicionesLibres() && algunoPuedeMover) {
+        while (!terminar && tablero.hayPosicionesLibres() && algunoPuedeMover) {
             System.out.println("--------------------");
             mostrarRonda();
             if (tablero.puedeMover(jugadores[primerJugador].getColor())) {
-                jugadores[primerJugador].ponerFicha(tablero);
+                terminar = jugadores[primerJugador].ponerFicha(tablero);
                 puedeMoverJugador1=true;
             }else{
                 System.out.println("El jugador "+jugadores[primerJugador].getColor()+" no puede mover.");
                 puedeMoverJugador1 = false;
             }
-            if (tablero.puedeMover(jugadores[segundoJugador].getColor())) {
-                jugadores[segundoJugador].ponerFicha(tablero);
+            if (tablero.puedeMover(jugadores[segundoJugador].getColor()) && !terminar) {
+                terminar = jugadores[segundoJugador].ponerFicha(tablero);
                 puedeMoverJugador2=true;
             }else{
                 System.out.println("El jugador "+jugadores[segundoJugador].getColor()+" no puede mover.");

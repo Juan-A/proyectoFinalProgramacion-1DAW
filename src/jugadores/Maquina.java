@@ -35,8 +35,9 @@ public class Maquina extends Jugador {
     }
 
     //Método que pone la ficha en el tablero.
+    //Boolean controla la salida voluntaria para personas, para maquina es un apano.
     @Override
-    public void ponerFicha(Tablero tablero) {
+    public boolean ponerFicha(Tablero tablero) {
         System.out.println("---"+nombre+"---");
         tablero.imprimirMovimientosValidos(color,true);
         //Selecciono posicion aleatoria
@@ -48,7 +49,7 @@ public class Maquina extends Jugador {
         //Pongo la ficha en el tablero
         tablero.ponerFicha(fila, columna, color);
         System.out.println("Maquina pone ficha.");
-
+        return false;
     }
     public void iniciarPartida(boolean esPrimerJugador){
         //El color de maquina lo inicio después de que el usuario elija el suyo
