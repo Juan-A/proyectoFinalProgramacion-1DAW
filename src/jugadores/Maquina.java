@@ -38,7 +38,7 @@ public class Maquina extends Jugador {
     //Boolean controla la salida voluntaria para personas, para maquina es un apano.
     @Override
     public boolean ponerFicha(Tablero tablero) {
-        System.out.println("---"+nombre+"---");
+        System.out.println("---" + nombre + " ("+colorToString()+ ") ---");
         tablero.imprimirMovimientosValidos(color,true);
         //Selecciono posicion aleatoria
         int posicionAleatoria = seleccionarPosicionAleatoria(tablero);
@@ -48,6 +48,8 @@ public class Maquina extends Jugador {
 
         //Pongo la ficha en el tablero
         tablero.ponerFicha(fila, columna, color);
+        //Limpio la lista de posiciones válidas
+        posicionesValidas.clear();
         System.out.println("Maquina pone ficha.");
         return false;
     }
