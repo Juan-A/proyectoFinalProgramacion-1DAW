@@ -8,7 +8,6 @@ import java.util.Random;
 public class MaquinaVsMaquina extends Partida {
     public MaquinaVsMaquina() {
         super();
-        boolean algunoPuedeMover = true, puedeMoverJugador1 = true, puedeMoverJugador2 = true;
         Random generar = new Random();
         byte primerJugador = (byte) generar.nextInt(2);
         byte segundoJugador;
@@ -18,12 +17,12 @@ public class MaquinaVsMaquina extends Partida {
             segundoJugador = 0;
         }
 
-        jugadores[0] = new Maquina();
-        jugadores[0].iniciarPartida(true);
-        jugadores[0].colorAleatorio();
-        jugadores[1] = new Maquina();
-        jugadores[1].iniciarPartida(false);
-        jugadores[1].setColor(jugadores[0].colorContrarioAdversario());
+        jugadores[primerJugador] = new Maquina();
+        jugadores[primerJugador].iniciarPartida(true);
+        jugadores[primerJugador].colorAleatorio();
+        jugadores[segundoJugador] = new Maquina();
+        jugadores[segundoJugador].iniciarPartida(false);
+        jugadores[segundoJugador].setColor(jugadores[0].colorContrarioAdversario());
 
 
         jugadas();
