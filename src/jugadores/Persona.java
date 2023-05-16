@@ -36,9 +36,6 @@ public class Persona extends Jugador {
 
     }
 
-    public void abandonar() {
-
-    }
 
     //Recibe un tablero y pide al usuario una posición hasta que sea válida.
     //Devuelve boolean para controlar la salida de la partida.
