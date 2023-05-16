@@ -90,7 +90,7 @@ public class Partida {
                 terminar = jugadores[primerJugador].ponerFicha(tablero);
                 puedeMoverJugador1 = true;
             } else {
-                System.out.println("El jugador " + jugadores[primerJugador].getColor() + " no puede mover.");
+                System.out.println("El jugador " + jugadores[primerJugador] + " no puede mover.");
                 puedeMoverJugador1 = false;
             }
 
@@ -98,7 +98,7 @@ public class Partida {
                 terminar = jugadores[segundoJugador].ponerFicha(tablero);
                 puedeMoverJugador2 = true;
             } else {
-                System.out.println("El jugador " + jugadores[segundoJugador].getColor() + " no puede mover.");
+                System.out.println("El jugador " + jugadores[segundoJugador] + " no puede mover.");
                 puedeMoverJugador2 = false;
             }
             if(ambosMaquina){
@@ -111,6 +111,7 @@ public class Partida {
             ronda++;
 
         }
+        System.out.println("Tablero final:\n"+tablero);
 
     }
 
