@@ -2,7 +2,7 @@
 
 
 
-![Pantalla inicial](assets/images/pantallaPrincipal.png)
+![Pantalla inicial](https://i.imgur.com/s4p17rc.png)
 ## Descripción
 
 Este proyecto de programación consiste en la creación de un juego llamado "*Reversi*",
