@@ -5,6 +5,7 @@ import jugadores.Jugador;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Partida {
     protected Tablero tablero;
@@ -73,6 +74,7 @@ public class Partida {
 
     public void jugadas() {
         boolean algunoPuedeMover = true, puedeMoverJugador1 = true, puedeMoverJugador2 = true, terminar = false;
+        boolean ambosMaquina = jugadores[0] instanceof jugadores.Maquina && jugadores[1] instanceof jugadores.Maquina;
         Random generar = new Random();
         byte primerJugador = (byte) generar.nextInt(2);
         byte segundoJugador;
@@ -91,12 +93,19 @@ public class Partida {
                 System.out.println("El jugador " + jugadores[primerJugador].getColor() + " no puede mover.");
                 puedeMoverJugador1 = false;
             }
+
             if (tablero.puedeMover(jugadores[segundoJugador].getColor()) && !terminar) {
                 terminar = jugadores[segundoJugador].ponerFicha(tablero);
                 puedeMoverJugador2 = true;
             } else {
                 System.out.println("El jugador " + jugadores[segundoJugador].getColor() + " no puede mover.");
                 puedeMoverJugador2 = false;
+            }
+            if(ambosMaquina){
+                //Si ambos son máquina, se espera un poco para que se vea el movimiento.
+                System.out.println("Pulse enter para continuar.");
+                Scanner teclado = new Scanner(System.in);
+                teclado.nextLine();
             }
             algunoPuedeMover = tablero.puedeMover(jugadores[primerJugador].getColor()) || tablero.puedeMover(jugadores[segundoJugador].getColor());
             ronda++;
