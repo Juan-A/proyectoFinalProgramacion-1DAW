@@ -54,7 +54,7 @@ public class Persona extends Jugador {
         //mostrar tablero:
         tablero.imprimirMovimientosValidos(color, true);
         //pedir posicion
-        System.out.println("---" + nombre + "---");
+        System.out.println("---" + nombre + " ("+colorToString()+ ") ---");
         while (!valido) {
             System.out.println("Si deseas salir, introduce 'S'.");
             System.out.print("Introduce una posición (3A p. ej.): ");
