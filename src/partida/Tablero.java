@@ -62,21 +62,22 @@ public class Tablero {
 
         // Verificar que haya al menos una ficha del adversario en una dirección
         boolean fichaAdversarioEncontrada = false;
+        //Esta sería una forma diferente a la que tenemos en ponerFicha de comprobar las dif. direcciones.
         for (int dx = -1; dx <= 1; dx++) {
             for (int dy = -1; dy <= 1; dy++) {
-                // No verificar la posición actual ni salir del tablero
+                // Si no me muevo en ninguna dirección o me salgo del tablero, paso a la siguiente iteración
                 if (dx == 0 && dy == 0 || x + dx < 0 || x + dx >= 8 || y + dy < 0 || y + dy >= 8) {
                     continue; //Esto hace que se salte la iteracion actual y pase a la siguiente del bucle.
                 }
 
                 // Encontrar la primera ficha del adversario en la dirección
-                int i = 1;
-                while (x + i * dx >= 0 && x + i * dx < 8 && y + i * dy >= 0 && y + i * dy < 8 && tablero[x + i * dx][y + i * dy] == adversario) {
-                    i++;
+                int distanciaFichaAdv = 1;
+                while (x + distanciaFichaAdv * dx >= 0 && x + distanciaFichaAdv * dx < 8 && y + distanciaFichaAdv * dy >= 0 && y + distanciaFichaAdv * dy < 8 && tablero[x + distanciaFichaAdv * dx][y + distanciaFichaAdv * dy] == adversario) {
+                    distanciaFichaAdv++;
                 }
 
                 // Verificar que haya al menos una ficha del jugador después de la ficha del adversario
-                if (x + i * dx >= 0 && x + i * dx < 8 && y + i * dy >= 0 && y + i * dy < 8 && tablero[x + i * dx][y + i * dy] == jugador && i > 1) {
+                if (x + distanciaFichaAdv * dx >= 0 && x + distanciaFichaAdv * dx < 8 && y + distanciaFichaAdv * dy >= 0 && y + distanciaFichaAdv * dy < 8 && tablero[x + distanciaFichaAdv * dx][y + distanciaFichaAdv * dy] == jugador && distanciaFichaAdv > 1) {
                     fichaAdversarioEncontrada = true;
                 }
             }
@@ -121,18 +122,18 @@ public class Tablero {
             int direccionX = direccion[0];
             int direccionY = direccion[1];
 
-            // Encontrar la primera ficha del adversario en la dirección
-            int i = 1;
+            // Distancia a la que se encuentra la ficha del adversario
+            int distanciaFichaAdv = 1;
             //Cada una de esas condiciones se asegura de que no me salgo del tablero.
             //La condición tablero [x + i*direccionX][y + i*direccionY] == adversario se asegura de que la ficha sea del adversario.
-            //Si no me salgo del tablero, y la ficha es del adversario, incremento i.
-            while (x + i * direccionX >= 0 && x + i * direccionX < 8 && y + i * direccionY >= 0 && y + i * direccionY < 8 && tablero[x + i * direccionX][y + i * direccionY] == adversario) {
-                i++;
+            //Si no me salgo del tablero, y la ficha es del adversario, incremento distanciaFichaAdv.
+            while (x + distanciaFichaAdv * direccionX >= 0 && x + distanciaFichaAdv * direccionX < 8 && y + distanciaFichaAdv * direccionY >= 0 && y + distanciaFichaAdv * direccionY < 8 && tablero[x + distanciaFichaAdv * direccionX][y + distanciaFichaAdv * direccionY] == adversario) {
+                distanciaFichaAdv++;
             }
 
             // Cambiar el color de las fichas del adversario
-            if (x + i * direccionX >= 0 && x + i * direccionX < 8 && y + i * direccionY >= 0 && y + i * direccionY < 8 && tablero[x + i * direccionX][y + i * direccionY] == color && i > 1) {
-                for (int j = 1; j < i; j++) {
+            if (x + distanciaFichaAdv * direccionX >= 0 && x + distanciaFichaAdv * direccionX < 8 && y + distanciaFichaAdv * direccionY >= 0 && y + distanciaFichaAdv * direccionY < 8 && tablero[x + distanciaFichaAdv * direccionX][y + distanciaFichaAdv * direccionY] == color && distanciaFichaAdv > 1) {
+                for (int j = 1; j < distanciaFichaAdv; j++) {
                     tablero[x + j * direccionX][y + j * direccionY] = color;
                 }
             }
