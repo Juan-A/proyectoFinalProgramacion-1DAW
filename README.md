@@ -1,7 +1,8 @@
 # Proyecto Final de Programación
 
 ---
-![alt text](assets/images/pantallaPrincipal.png)
+
+![Pantalla inicial](assets/images/pantallaPrincipal.png)
 ## Descripción
 
 Este proyecto de programación consiste en la creación de un juego llamado "*Reversi*",
@@ -41,7 +42,7 @@ Abre el proyecto con IntelliJ IDEA y ejecuta el archivo `Main.java` del proyecto
 - Linux y Mac:
     1. IntelliJ : Genera los artifacts con estas [*Instrucciones*](https://www.jetbrains.com/help/idea/working-with-artifacts.html#artifact_configs)
     2. Una vez hayas generado el ejecutable, lanza el archivo `Jugar.sh` que encontrarás en la raíz del proyecto.
-> ¡Recuerda!En Linux, añade permisos de ejecución al archivo `.sh` con el comando `chmod +x Jugar.sh` en la terminal ó con el explorador de archivos (``Clic derecho -> Propiedades -> Permisos``).
+> ¡Recuerda! En Linux, añade permisos de ejecución al archivo `.sh` con el comando `chmod +x Jugar.sh` en la terminal ó con el explorador de archivos (``Clic derecho -> Propiedades -> Permisos``).
 
 
 ## Proyecto realizado por:
