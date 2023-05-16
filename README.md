@@ -1,6 +1,6 @@
 # Proyecto Final de Programación
 
----
+
 
 ![Pantalla inicial](assets/images/pantallaPrincipal.png)
 ## Descripción
