@@ -16,8 +16,6 @@ también conocido como "*Othello*".
 
 ## Índice
 
-Si su README es extenso, agregue un índice para facilitar que los usuarios encuentren lo que necesitan.
-
 - [Descargando el proyecto](#descargando-el-proyecto)
 - [Uso](#uso)
 - [Miembros del grupo](#proyecto-realizado-por)
