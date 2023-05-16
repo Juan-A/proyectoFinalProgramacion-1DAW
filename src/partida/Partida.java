@@ -2,6 +2,8 @@ package partida;
 
 import jugadores.Jugador;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class Partida {
@@ -35,6 +37,14 @@ public class Partida {
 
     //mostrarGanador
     public void mostrarGanador() {
+        Map<Character,Jugador> jugadorTemp = new HashMap<Character,Jugador>();
+        if(jugadores[0].getColor() == 'B') {
+            jugadorTemp.put('B', jugadores[0]);
+            jugadorTemp.put('N', jugadores[1]);
+        } else {
+            jugadorTemp.put('B', jugadores[1]);
+            jugadorTemp.put('N', jugadores[0]);
+        }
         StringBuilder ganador = new StringBuilder();
         int fichasblancas = 0, fichasnegras = 0;
         for (int i = 0; i < tablero.getTablero().length; i++) {
@@ -47,9 +57,9 @@ public class Partida {
             }
         }
         if (fichasblancas > fichasnegras) {
-            ganador.append(jugadores[0].toString());
+            ganador.append(jugadorTemp.get('B'));
         } else if (fichasblancas < fichasnegras) {
-            ganador.append(jugadores[1].toString());
+            ganador.append(jugadorTemp.get('N'));
         } else if (fichasblancas == fichasnegras) {
             ganador.append("Empate! No hay ganador.");
         }
