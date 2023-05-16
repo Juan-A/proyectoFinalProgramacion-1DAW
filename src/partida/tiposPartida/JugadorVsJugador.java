@@ -3,16 +3,26 @@ package partida.tiposPartida;
 import jugadores.Persona;
 import partida.Partida;
 
+import java.util.Random;
+
 
 public class JugadorVsJugador extends Partida {
     public JugadorVsJugador() {
         super();
+        Random generar = new Random();
+        byte primerJugador = (byte) generar.nextInt(2);
+        byte segundoJugador;
+        if (primerJugador == 0) {
+            segundoJugador = 1;
+        } else {
+            segundoJugador = 0;
+        }
 
-        jugadores[0] = new Persona();
-        jugadores[0].iniciarPartida(true);
-        jugadores[1] = new Persona();
-        jugadores[1].iniciarPartida(false);
-        jugadores[1].setColor(jugadores[0].colorContrarioAdversario());
+        jugadores[primerJugador] = new Persona();
+        jugadores[primerJugador].iniciarPartida(true);
+        jugadores[segundoJugador] = new Persona();
+        jugadores[segundoJugador].iniciarPartida(false);
+        jugadores[segundoJugador].setColor(jugadores[0].colorContrarioAdversario());
         imprimirColoresJugadores();
 
         jugadas();
