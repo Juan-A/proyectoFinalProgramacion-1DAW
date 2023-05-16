@@ -16,10 +16,10 @@ public class Persona extends Jugador {
         nombre = teclado.nextLine();
         this.nombre = nombre;
         if (esPrimerJugador) { //Si es el primer jugador, se le pregunta si quiere elegir color.
-            System.out.println("Bien, " + nombre + " quieres elegir color? (S/N):");
+            System.out.print("Bien, " + nombre + " quieres elegir color? (S/N): ");
             String respuesta = teclado.nextLine();
             if (respuesta.equalsIgnoreCase("S")) {
-                System.out.println("Elige color (B/N):");
+                System.out.print("Elige color (B/N): ");
                 respuesta = teclado.nextLine();
                 if (respuesta.equalsIgnoreCase("B")) {
                     this.color = 'B';
@@ -57,10 +57,10 @@ public class Persona extends Jugador {
         System.out.println("---" + nombre + "---");
         while (!valido) {
             System.out.println("Si deseas salir, introduce 'S'.");
-            System.out.print("Introduce una posición (3A p. ej.):");
+            System.out.print("Introduce una posición (3A p. ej.): ");
             entrada = teclado.nextLine();
             try {
-                if (entrada.charAt(0) == 'S' || entrada.charAt(0) == 's') {
+                if (entrada.equalsIgnoreCase("S")) {
                     return true;
                 }
                 fila = Byte.parseByte(String.valueOf(entrada.charAt(0)));
