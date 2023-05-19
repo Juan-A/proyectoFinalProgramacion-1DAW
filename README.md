@@ -56,6 +56,5 @@ Abre el proyecto con IntelliJ IDEA y ejecuta el archivo `Main.java` del proyecto
 Este proyecto está bajo la Licencia Pública General de GNU versión 3.0. Puedes encontrar una copia de la licencia en el archivo [LICENSE](LICENSE) o en [https://www.gnu.org/licenses/gpl-3.0.en.html](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
 ## Diagramas
-*Queda pendiente de actualizar el diagrama para reflejar los cambios en métodos y variables de algunas de las clases.*
 ![Diagrama de clases](https://i.imgur.com/6xfMh55.png)
 ---
