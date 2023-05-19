@@ -1,11 +1,9 @@
 // -*- coding: utf-8 -*-
-import jugadores.Persona;
+
 import partida.Partida;
-import partida.Tablero;
 import partida.tiposPartida.JugadorVsJugador;
 import partida.tiposPartida.JugadorVsMaquina;
 import partida.tiposPartida.MaquinaVsMaquina;
-
 
 import java.util.Scanner;
 
