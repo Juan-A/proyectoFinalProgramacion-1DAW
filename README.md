@@ -57,5 +57,5 @@ Este proyecto está bajo la Licencia Pública General de GNU versión 3.0. Puede
 
 ## Diagramas
 *Queda pendiente de actualizar el diagrama para reflejar los cambios en métodos y variables de algunas de las clases.*
-![Diagrama de clases](https://i.imgur.com/xAHVlbJ.png)
+![Diagrama de clases](https://i.imgur.com/6xfMh55.png)
 ---
