@@ -7,7 +7,7 @@
 
 Este proyecto de programación consiste en la creación de un juego llamado "*Reversi*",
 también conocido como "*Othello*".
-- El juego consiste en la colocación de fichas (⚫⚪) en posiciones adyacentes a las del adversario, de forma que se capturen las fichas del oponente que haya en medio.
+- El juego consiste en la colocación de fichas (⚫⚪) en posiciones adyacentes a las del adversario (los asteriscos indican las posiciones a las que es posible mover), de forma que se capturen las fichas del oponente que haya en medio.
   - Hay varias modalidades de juego que se han pedido para este proyecto, que son:
     - Jugador contra Jugador 🙂🙂
     - Jugador contra Máquina 🙂🤖
@@ -34,7 +34,7 @@ O bien, descarga el proyecto desde [aquí](https://github.com/Juan-A/proyectoFin
 ## Uso
 
 - Windows, Linux y Mac:
-Abre el proyecto con IntelliJ IDEA y ejecuta el archivo `Main.java` del proyecto.
+Abre el proyecto con IntelliJ IDEA o con cualquier otro IDE y ejecuta el archivo `Main.java` del proyecto.
 - Windows 11 (En otras no funcionan las figuras):
     1. IntelliJ : Genera los artifacts con estas [*Instrucciones*](https://www.jetbrains.com/help/idea/working-with-artifacts.html#artifact_configs)
     2. Una vez hayas generado el ejecutable, lanza el archivo `Jugar.bat` que encontrarás en la raíz del proyecto.
@@ -56,6 +56,5 @@ Abre el proyecto con IntelliJ IDEA y ejecuta el archivo `Main.java` del proyecto
 Este proyecto está bajo la Licencia Pública General de GNU versión 3.0. Puedes encontrar una copia de la licencia en el archivo [LICENSE](LICENSE) o en [https://www.gnu.org/licenses/gpl-3.0.en.html](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
 ## Diagramas
-*Queda pendiente de actualizar el diagrama para reflejar los cambios en métodos y variables de algunas de las clases.*
-![Diagrama de clases](https://i.imgur.com/xAHVlbJ.png)
+![Diagrama de clases](https://i.imgur.com/6xfMh55.png)
 ---
