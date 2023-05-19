@@ -7,7 +7,7 @@
 
 Este proyecto de programación consiste en la creación de un juego llamado "*Reversi*",
 también conocido como "*Othello*".
-- El juego consiste en la colocación de fichas (⚫⚪) en posiciones adyacentes a las del adversario, de forma que se capturen las fichas del oponente que haya en medio.
+- El juego consiste en la colocación de fichas (⚫⚪) en posiciones adyacentes a las del adversario (los asteriscos indican las posiciones a las que es posible mover), de forma que se capturen las fichas del oponente que haya en medio.
   - Hay varias modalidades de juego que se han pedido para este proyecto, que son:
     - Jugador contra Jugador 🙂🙂
     - Jugador contra Máquina 🙂🤖
