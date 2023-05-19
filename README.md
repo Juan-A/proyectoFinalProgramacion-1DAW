@@ -34,7 +34,7 @@ O bien, descarga el proyecto desde [aquí](https://github.com/Juan-A/proyectoFin
 ## Uso
 
 - Windows, Linux y Mac:
-Abre el proyecto con IntelliJ IDEA y ejecuta el archivo `Main.java` del proyecto.
+Abre el proyecto con IntelliJ IDEA o con cualquier otro IDE y ejecuta el archivo `Main.java` del proyecto.
 - Windows 11 (En otras no funcionan las figuras):
     1. IntelliJ : Genera los artifacts con estas [*Instrucciones*](https://www.jetbrains.com/help/idea/working-with-artifacts.html#artifact_configs)
     2. Una vez hayas generado el ejecutable, lanza el archivo `Jugar.bat` que encontrarás en la raíz del proyecto.
