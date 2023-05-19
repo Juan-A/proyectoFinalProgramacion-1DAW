@@ -6,7 +6,7 @@ public class Tablero {
     private static final char FICHA_BLANCA = '○';
     private static final char FICHA_NEGRA = '●';
     private static final char FICHA_VACIA = '□';
-    private static final String FORMATO_TABLERO = "\u001B[47m" + "\u001B[30m"; //Define fondo y fuente, respectivamente.
+    private static final String FORMATO_TABLERO = "\u001B[47m" + "\u001B[30m"; //Define color de fondo y de fuente, respectivamente.
     private static final String FORMATO_RESTAURAR = "\u001B[0m"; //Resetea el formato.
 
     char[][] tablero = new char[8][8];
@@ -179,7 +179,7 @@ public class Tablero {
         //imprime el tablero:
 
         StringBuilder tableroString = new StringBuilder();
-        tableroString.append(FORMATO_TABLERO);
+        tableroString.append(FORMATO_TABLERO); //Pone el fondo blanco y los caract. oscuro.
         tableroString.append("  A B C D E F G H\n"); //Agrega encabezado de columnas.
 
         for (int i = 0; i < tablero.length; i++) {
@@ -198,7 +198,7 @@ public class Tablero {
             tableroString.append("\n");
         }
         tableroString.append("  A B C D E F G H\n");
-        tableroString.append(FORMATO_RESTAURAR);
+        tableroString.append(FORMATO_RESTAURAR); //Restaura formato.
         return tableroString.toString();
 
     }
