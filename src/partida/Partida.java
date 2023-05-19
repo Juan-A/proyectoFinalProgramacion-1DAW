@@ -72,8 +72,11 @@ public class Partida {
 
     }
 
+    //Este método lleva a cabo el proceso de partida a partir de dos jugadores creados previamente.
+    //Pide la colocación de fichas y sigue la partida mientras sea posible.
     public void jugadas() {
         boolean algunoPuedeMover = true, puedeMoverJugador1 = true, puedeMoverJugador2 = true, terminar = false;
+        //El booleano "terminar" sirve para pasar el fin de partida a este método.
         boolean ambosMaquina = jugadores[0] instanceof jugadores.Maquina && jugadores[1] instanceof jugadores.Maquina;
         Random generar = new Random();
         byte primerJugador = (byte) generar.nextInt(2);
