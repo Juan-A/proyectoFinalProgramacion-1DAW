@@ -21,7 +21,7 @@ public class JugadorVsMaquina extends Partida {
         jugadores[primerJugador] = new Persona();
         jugadores[primerJugador].iniciarPartida(true);
         jugadores[segundoJugador] = new Maquina();
-        jugadores[segundoJugador].iniciarPartida(false);
+        jugadores[segundoJugador].iniciarPartida(true); //Primer jugador de su tipo.
         jugadores[segundoJugador].setColor(jugadores[0].colorContrarioAdversario());
         imprimirColoresJugadores();
 
