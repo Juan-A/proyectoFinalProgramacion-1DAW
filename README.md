@@ -17,7 +17,7 @@ también conocido como "*Othello*".
 ## Índice
 
 - [Descargando el proyecto](#descargando-el-proyecto)
-- [Uso](#uso)
+- [Uso y posibles fallos de visualización](#uso)
 - [Miembros del grupo](#proyecto-realizado-por)
 - [Licencia](#licencia)
 - [Diagramas](#diagramas)
@@ -32,6 +32,7 @@ git clone https://github.com/Juan-A/proyectoFinalProgramacion-1DAW.git
 O bien, descarga el proyecto desde [aquí](https://github.com/Juan-A/proyectoFinalProgramacion-1DAW/archive/refs/heads/main.zip).
 
 ## Uso
+> Si no consigues ver las figuras que usamos para las fichas correctamente, puedes cambiarlas directamente por letras (B,N,V) (que en cualquier caso, sí que funcionarán) en la clase `Tablero` (constantes `FICHA_X`), ya que se ha realizado la representación de forma independiente con la forma en que se procesa el tablero.
 
 - Windows, Linux y Mac:
 Abre el proyecto con IntelliJ IDEA o con cualquier otro IDE y ejecuta el archivo `Main.java` del proyecto.
