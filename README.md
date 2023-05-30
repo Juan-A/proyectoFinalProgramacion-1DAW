@@ -13,7 +13,8 @@ también conocido como "*Othello*".
     - Jugador contra Máquina 🙂🤖
     - Máquina contra Máquina 🤖🤖
 - Gana el jugador que tenga más fichas de su color al finalizar la partida (cuando no se puedan realizar más movimientos).
-
+## Memoria
+La memoria del proyecto es accesible desde [este enlace](https://drive.google.com/file/d/1qkX257zWu552HX7oF8OgCR9S9lPJgsMM/view?usp=sharing) con el correo corporativo de la Junta de Andalucía.
 ## Índice
 
 - [Descargando el proyecto](#descargando-el-proyecto)
